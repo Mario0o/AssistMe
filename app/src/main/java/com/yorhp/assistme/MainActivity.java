@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.Switch;
 
+import com.yorhp.recordlibrary.ScreenRecordUtil;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
@@ -18,13 +20,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ScreenRecordUtil.getInstance().screenShot(MainActivity.this, null);
         swAntForest=findViewById(R.id.swAntForest);
         //收能量
         swAntForest.setOnClickListener(v->{
             startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
         });
-
-
     }
 }
